@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/home_page.dart';
+import 'package:flutter_application_1/pages/home_page.dart';
+import 'package:flutter_application_1/pages/login_page.dart';
 
 void main() {
   runApp(MyApp());
@@ -8,13 +9,16 @@ void main() {
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    double pi = 3.14;
-    bool isMale = true;
-    num temp = 30.5;
-    var day = "Tuesday";
-
     return MaterialApp(
-      home: HomePage(),
+      themeMode: ThemeMode.light,
+      theme: ThemeData(primarySwatch: Colors.deepPurple),
+      darkTheme: ThemeData(brightness: Brightness.dark),
+      initialRoute: "/home",
+      routes: {
+        "/": (context) => Loginpage(),
+        "/home": (context) => HomePage(),
+        "/login": (context) => Loginpage(),
+      },
     );
   }
 }
